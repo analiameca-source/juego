@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Héroes de la Independencia — Aprende Jugando</title>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700;900&family=Playfair+Display:wght@700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <!-- Fondo atmosférico -->
+    <div class="bg-layer"></div>
+    <div class="noise-overlay"></div>
+
+    <!-- Partículas -->
+    <div class="particles-container" id="particlesContainer"></div>
+
+    <!-- Toasts -->
+    <div class="toast-container" id="toastContainer"></div>
+
+    <!-- Barra superior -->
+    <header class="top-bar" id="topBar">
+        <div class="top-bar-left">
+            <div class="logo" id="logoBtn" tabindex="0" role="button" aria-label="Ver perfil y progreso">Héroes</div>
+        </div>
+        <div class="hearts-bar">
+            <div class="stat-pill xp" title="Puntos de experiencia">
+                <i class="fas fa-star"></i>
+                <span id="xpDisplay">0</span>
+                <span class="stat-label">XP</span>
+            </div>
+            <div class="stat-pill streak" title="Racha de aciertos">
+                <i class="fas fa-fire"></i>
+                <span id="streakDisplay">0</span>
+            </div>
+            <div class="stat-pill hearts" id="heartsPill" title="Vidas restantes">
+                <i class="fas fa-heart"></i>
+                <span id="heartsDisplay">5</span>
+            </div>
+        </div>
+    </header>
+
+    <!-- PANTALLA: INICIO -->
+    <main class="screen active" id="screenHome">
+        <section class="home-hero">
+            <div class="home-hero-badge">
+                <i class="fas fa-landmark"></i>
+                Curso gratuito
+            </div>
+            <h1>Aprende los <span>Héroes de la Independencia</span> de México</h1>
+            <p>Descubre quiénes fueron los personajes clave que forjaron la nación. Aprende su historia, sus logros y su legado de forma divertida.</p>
+        </section>
+        <div class="lesson-tree" id="lessonTree">
+            <div class="tree-line"></div>
+            <!-- Nodos generados por JS -->
+        </div>
+    </main>
+
+    <!-- PANTALLA: JUEGO -->
+    <section class="screen" id="screenGame">
+        <div class="game-container">
+            <div class="progress-bar-wrap">
+                <div class="progress-bar-fill" id="progressBar" style="width: 0%"></div>
+            </div>
+            <div id="questionArea">
+                <!-- Pregunta generada por JS -->
+            </div>
+        </div>
+        <div class="action-bar" id="actionBar" style="display: none;">
+            <div class="action-bar-inner">
+                <div class="feedback-text" id="feedbackText"></div>
+                <button class="btn-primary" id="continueBtn" disabled>Continuar</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- PANTALLA: RESULTADOS -->
+    <section class="screen" id="screenResults">
+        <div class="results-container" id="resultsContent">
+            <!-- Generado por JS -->
+        </div>
+    </section>
+
+    <!-- PANTALLA: GAME OVER -->
+    <section class="screen" id="screenGameover">
+        <div class="gameover-container">
+            <div class="gameover-icon"><i class="fas fa-heart-crack"></i></div>
+            <h2 class="gameover-title">Sin vidas restantes</h2>
+            <p class="gameover-desc">No te rindas. Los héroes de la independencia también enfrentaron derrotas antes de alcanzar la victoria. Inténtalo de nuevo.</p>
+            <div class="results-buttons">
+                <button class="btn-secondary" id="gameoverHomeBtn">Volver al mapa</button>
+                <button class="btn-primary" id="gameoverRetryBtn">Reintentar</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- MODAL: PERFIL -->
+    <div class="modal-backdrop" id="profileModal">
+        <div class="modal-content" role="dialog" aria-label="Tu perfil">
+            <button class="modal-close" id="modalCloseBtn" aria-label="Cerrar"><i class="fas fa-xmark"></i></button>
+            <h2 class="modal-title">Tu progreso</h2>
+            <div id="profileContent"></div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
